@@ -1,0 +1,13 @@
+﻿@page "/button"
+
+<h3>Button</h3>
+<hr />
+<FlammableComponents.Button Class="btn btn-primary" Text="Button" OnClick="DoWorkAsync" />
+
+@code {
+
+    private async Task DoWorkAsync()
+    {
+        await Task.Delay(1500);
+    }
+}
