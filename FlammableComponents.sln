@@ -5,7 +5,7 @@ VisualStudioVersion = 16.0.30517.126
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FlammableComponents", "FlammableComponents\FlammableComponents.csproj", "{BEDB6E8D-4CF2-44B9-9B9B-93FA961DFB4B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FlammableComponents.Demo", "FlammableComponents.Demo\FlammableComponents.Demo.csproj", "{212F6F16-29E9-4B7E-8A26-BD60B028C840}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FlammableComponents.Demo", "FlammableComponents.Demo\FlammableComponents.Demo.csproj", "{212F6F16-29E9-4B7E-8A26-BD60B028C840}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
