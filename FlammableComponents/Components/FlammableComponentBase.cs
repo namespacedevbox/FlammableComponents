@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Components;
 
-namespace FlammableComponents.Components
+namespace FlammableComponents
 {
     public class FlammableComponentBase : ComponentBase
     {
