@@ -1,3 +1,4 @@
 ﻿@namespace FlammableComponents
+@typeparam TValue
 
-<input type="datetime-local" max="9999-12-31T23:59" class="form-control" @onchange="OnValueChanged" />
+<input type="datetime-local" max="@DateMax" class="form-control" @onchange="OnValueChanged" />
