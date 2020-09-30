@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 
 namespace FlammableComponents
 {
-    public partial class Button : ComponentBase
+    public partial class Button : FlammableComponentBase
     {
         [Parameter] public RenderFragment Image { get; set; }
         [Parameter] public EventCallback OnClick { get; set; }

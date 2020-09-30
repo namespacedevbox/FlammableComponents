@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace FlammableComponents
 {
-    public partial class DateTimePicker<TValue> : ComponentBase
+    public partial class DateTimePicker<TValue> : FlammableComponentBase
     {
         private const string DateMax = "9999-12-31T23:59";
 
