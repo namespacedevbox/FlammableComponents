@@ -1,0 +1,33 @@
+﻿@page "/label"
+
+<h3>Label</h3>
+<hr />
+
+<EditForm Model="UserModel" >
+    <div class="form-group">
+        <FormLabel For="@(() => UserModel.FirstName)" class="text-gray" />
+        <InputText @bind-Value="UserModel.FirstName" class="form-control text-navyblue" />
+        <ValidationMessage For="@(() => UserModel.FirstName)" class="text-danger" />
+    </div>
+    <div class="form-group">
+        <FormLabel For="@(() => UserModel.LastName)" class="text-gray" />
+        <InputText @bind-Value="UserModel.LastName" class="form-control text-navyblue" />
+        <ValidationMessage For="@(() => UserModel.LastName)" class="text-danger" />
+    </div>
+</EditForm>
+
+
+@code {
+
+    public class User
+    {
+        [System.ComponentModel.DataAnnotations.Required]
+        [System.ComponentModel.DataAnnotations.Display(Name = "Name")]
+        public string FirstName { get; set; }
+
+        [System.ComponentModel.DataAnnotations.Display(Name = "Surname")]
+        public string LastName { get; set; }
+    }
+
+    public User UserModel { get; set; } = new User();
+}

@@ -3,7 +3,7 @@ using System;
 
 namespace FlammableComponents
 {
-    public partial class DateTimePicker : ComponentBase
+    public partial class DateTimePicker : FlammableComponentBase
     {
         [Parameter] public DateTime? Value { get; set; }
         [Parameter] public EventCallback<DateTime?> ValueChanged { get; set; }
