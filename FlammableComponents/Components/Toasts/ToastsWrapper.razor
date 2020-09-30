@@ -1,0 +1,14 @@
+﻿@namespace FlammableComponents
+@inherits FlammableComponentBase
+
+@if (ToastItems != null && ToastItems.Any())
+{
+    <div class="toasts-wrapper">
+        <CascadingValue Value=this>
+            @foreach (var toastItem in ToastItems.OrderBy(x => x.TimeStamp))
+            {
+                <ToastItem @key="toastItem" ToastInstance="toastItem" />
+            }
+        </CascadingValue>
+    </div>
+}

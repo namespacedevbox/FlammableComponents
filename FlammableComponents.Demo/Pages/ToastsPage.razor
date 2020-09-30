@@ -1,0 +1,12 @@
+﻿@page "/toasts"
+
+<h3>Toasts</h3>
+<hr />
+
+<button type="button" class="btn btn-success" @onclick="@(() => ToastService.ShowToastAsync("Success toast", Enums.ToastType.Success))">Success Toast</button>
+<button type="button" class="btn btn-secondary" @onclick="@(() => ToastService.ShowToastAsync("Info toast", Enums.ToastType.Notify))">Info Toast</button>
+<button type="button" class="btn btn-danger" @onclick="@(() => ToastService.ShowToastAsync("Error toast", Enums.ToastType.Error))">Error Toast</button>
+
+@code {
+    [Inject] IToastService ToastService { get; set; }
+}
