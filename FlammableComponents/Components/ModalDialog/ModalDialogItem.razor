@@ -1,0 +1,18 @@
+﻿@namespace FlammableComponents
+@inherits FlammableComponentBase
+
+<div class="modal" id="@ModalDialogInstance.Id" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="modalDialogTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered @ModalDialogInstance.ModalDialogSizeClass" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title text-navyblue">@ModalDialogInstance.Header</h5>
+                <button type="button" class="close" @onclick="@CloseDialogAsync" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                @ModalDialogInstance.Body
+            </div>
+        </div>
+    </div>
+</div>

@@ -6,7 +6,8 @@ namespace FlammableComponents
     {
         public static IServiceCollection AddFlammable(this IServiceCollection services)
         {
-            return services.AddScoped<IToastService, ToastService>();
+            services.AddScoped<IToastService, ToastService>();
+            return services.AddScoped<IModalDialogService, ModalDialogService>();
         }
     }
 }

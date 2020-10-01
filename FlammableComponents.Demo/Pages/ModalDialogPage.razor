@@ -1,0 +1,22 @@
+﻿@page "/modalDialog"
+
+<h3>ModalDialog</h3>
+<hr />
+
+<button type="button" class="btn btn-primary" @onclick="@OpenDialog">Open modal</button>
+
+@code {
+    [Inject] public FlammableComponents.IModalDialogService ModalDialogService { get; set; }
+
+    public async Task OpenDialog()
+    {
+        RenderFragment body = (builder) =>
+        {
+            builder.OpenElement(0, "h1");
+            builder.AddContent(1, "Hello World");
+            builder.CloseElement();
+        };
+
+        await ModalDialogService.ShowAsync("TestHeader", body);
+    }
+}

@@ -1,7 +1,8 @@
-﻿@inherits LayoutComponentBase
-
+﻿@using FlammableComponents
+@inherits LayoutComponentBase
 
 <ToastsWrapper />
+
 <div class="sidebar">
     <NavMenu />
 </div>
@@ -12,6 +13,7 @@
     </div>
 
     <div class="content px-4">
+        <ModalDialogsWrapper />
         @Body
     </div>
 </div>

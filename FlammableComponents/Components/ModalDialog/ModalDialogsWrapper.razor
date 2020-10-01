@@ -1,0 +1,12 @@
+﻿@namespace FlammableComponents
+@inherits FlammableComponentBase
+
+@if (ModalDialogItems != null && ModalDialogItems.Any())
+{
+    <CascadingValue Value=this>
+        @foreach (var modalDialogItem in ModalDialogItems)
+        {
+            <ModalDialogItem @key="modalDialogItem" ModalDialogInstance="modalDialogItem" />
+        }
+    </CascadingValue>
+}
