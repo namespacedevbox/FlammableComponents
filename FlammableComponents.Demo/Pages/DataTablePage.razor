@@ -1,0 +1,60 @@
+﻿@page "/table"
+@using FlammableComponents.Demo.Models;
+
+<h3>DataTable</h3>
+<hr />
+
+
+@if (MainTableService.Entities == null)
+{
+    <p>Loading</p>
+}
+else
+{
+    <DataTable Items="MainTableService.Entities" SelectedItem="MainTableService.SelectedEntity" SelecedItemChanged="MainTableService.SelectedItemChangedAsync">
+        <TableHeader>
+            <TableHeaderItem Title="GuidId"
+                             TitleWidth="8"
+                             SortColumn="@nameof(User.GuidId)"
+                             CurrentSortedColumn="@MainTableService.DataLoadingOptions.SortedColumn"
+                             CurrentSortDirection="@MainTableService.DataLoadingOptions.SortDirection"
+                             SortedColumnChanged="MainTableService.SortedColumnChangedAsync"
+                             SortDirectionChanged="MainTableService.SortDirectionChangedAsync" />
+            <TableHeaderItem Title="Int"
+                             TitleWidth="8"
+                             SortColumn="@nameof(User.IntegerId)"
+                             CurrentSortedColumn="@MainTableService.DataLoadingOptions.SortedColumn"
+                             CurrentSortDirection="@MainTableService.DataLoadingOptions.SortDirection"
+                             SortedColumnChanged="MainTableService.SortedColumnChangedAsync"
+                             SortDirectionChanged="MainTableService.SortDirectionChangedAsync" />
+            <TableHeaderItem Title="FirstName"
+                             TitleWidth="8"
+                             SortColumn="@nameof(User.FirstName)"
+                             CurrentSortedColumn="@MainTableService.DataLoadingOptions.SortedColumn"
+                             CurrentSortDirection="@MainTableService.DataLoadingOptions.SortDirection"
+                             SortedColumnChanged="MainTableService.SortedColumnChangedAsync"
+                             SortDirectionChanged="MainTableService.SortDirectionChangedAsync" />
+            <TableHeaderItem Title="LastName"
+                             TitleWidth="8"
+                             SortColumn="@nameof(User.Lastname)"
+                             CurrentSortedColumn="@MainTableService.DataLoadingOptions.SortedColumn"
+                             CurrentSortDirection="@MainTableService.DataLoadingOptions.SortDirection"
+                             SortedColumnChanged="MainTableService.SortedColumnChangedAsync"
+                             SortDirectionChanged="MainTableService.SortDirectionChangedAsync" />
+        </TableHeader>
+        <TableRow>
+            <td>
+                @context.GuidId
+            </td>
+            <td>
+                @context.IntegerId
+            </td>
+            <td>
+                @context.FirstName
+            </td>
+            <td>
+                @context.Lastname
+            </td>
+        </TableRow>
+    </DataTable>
+}

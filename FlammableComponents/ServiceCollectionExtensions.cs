@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿using FlammableComponents.Services;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace FlammableComponents
 {
@@ -6,6 +7,7 @@ namespace FlammableComponents
     {
         public static IServiceCollection AddFlammable(this IServiceCollection services)
         {
+            services.AddScoped(typeof(IDataTableService<,>), typeof(DataTableService<,>));
             services.AddScoped<IToastService, ToastService>();
             return services.AddScoped<IModalDialogService, ModalDialogService>();
         }
