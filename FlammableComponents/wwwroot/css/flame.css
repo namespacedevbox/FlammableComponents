@@ -2,6 +2,38 @@
 {
 }
 
+/* DataTable */
+.table-row {
+    cursor: pointer;
+}
+
+.table-selected-row {
+    color: white !important;
+    background-color: #007BFF !important;
+}
+
+.table-sort-arrow {
+    cursor: pointer;
+    width: 18px;
+}
+
+.table-sort-arrow-up {
+    content: url("/svg/icon-table-arrow-sort.svg");
+}
+
+.table-sort-arrow-down {
+    content: url("/svg/icon-table-arrow-sort.svg");
+    transform: rotate(180deg);
+}
+
+.table-loading {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    z-index: 2;
+    background: #FFFFFF80;
+}
+
 /* Toasts */
 .toasts-wrapper {
     bottom: 0;

@@ -1,0 +1,23 @@
+﻿@namespace FlammableComponents
+@inherits FlammableComponentBase
+
+<div id="filter-collapse" class="collapse @(ShowFilter ? "show":"hide")">
+    <div class="filter-wrapper" style="color: #fff;">
+        @FilterForm
+    </div>
+</div>
+<div class="d-flex justify-content-between mb-3">
+    <div class="d-flex align-items-center flex-wrap">
+        @ActionButtons
+    </div>
+    <div class="d-flex align-items-center flex-nowrap">
+        @if (ShowFilterButton)
+        {
+            <button type="button" class="btn btn-light main-button mx-2 text-nowrap rounded-0 " data-toggle="collapse" data-target="#filter-collapse" aria-expanded="false" aria-controls="#filter-collapse" title="Filter">
+                <img class="icon-btn" src="/svg/action/filter.svg" />
+            </button>
+        }
+
+        <input type="text" @bind-value="SearchText" @bind-value:event="oninput" @onkeyup="@SearchBoxKeyUp" class="form-control search-box rounded-0" placeholder="Search">
+    </div>
+</div>

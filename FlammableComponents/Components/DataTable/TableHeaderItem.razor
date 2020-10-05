@@ -1,0 +1,7 @@
+﻿@namespace FlammableComponents
+@inherits FlammableComponentBase
+
+<th style="width:@(TitleWidth + "%");" class="cursor-pointer" @onclick="@SortTable">
+    @Title
+    <img class="table-sort-arrow @GetSortIcon()" />
+</th>
