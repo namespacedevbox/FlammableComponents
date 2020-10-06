@@ -9,9 +9,6 @@ namespace FlammableComponents
         [Parameter] public RenderFragment Image { get; set; }
         [Parameter] public EventCallback OnClick { get; set; }
         [Parameter] public string Text { get; set; } = "Button";
-        [Parameter] public string Class { get; set; } = string.Empty;
-        [Parameter] public bool Submit { get; set; } = false;
-        [Parameter] public bool Disabled { get; set; } = false;
 
         private bool _busy;
 

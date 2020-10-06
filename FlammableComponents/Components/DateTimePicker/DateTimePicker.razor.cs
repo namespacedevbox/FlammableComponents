@@ -1,6 +1,5 @@
 ﻿using Microsoft.AspNetCore.Components;
 using System;
-using System.Collections.Generic;
 
 namespace FlammableComponents
 {
@@ -8,7 +7,6 @@ namespace FlammableComponents
     {
         private const string DateMax = "9999-12-31T23:59";
 
-        [Parameter(CaptureUnmatchedValues = true)] public IReadOnlyDictionary<string, object> AdditionalAttributes { get; set; }
         [Parameter] public TValue Value { get; set; }
         [Parameter] public EventCallback<TValue> ValueChanged { get; set; }
 

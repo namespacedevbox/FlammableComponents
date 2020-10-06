@@ -2,4 +2,4 @@
 @inherits FlammableComponentBase
 @typeparam TValue
 
-<input type="datetime-local" max="@DateMax" class="form-control" @onchange="OnValueChanged" />
+<input @attributes="AdditionalAttributes" @onchange="OnValueChanged" max="@DateMax" type="datetime-local"/>

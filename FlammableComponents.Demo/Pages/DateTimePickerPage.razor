@@ -3,9 +3,8 @@
 <h3>Date Time Picker</h3>
 <hr />
 <label>@Date</label>
-<FlammableComponents.DateTimePicker @bind-Value="Date" />
+<FlammableComponents.DateTimePicker @bind-Value="Date" class="form-control"/>
 
 @code {
-
     public DateTime? Date { get; set; } = DateTime.Now;
 }
