@@ -12,11 +12,16 @@
     {
         RenderFragment body = (builder) =>
         {
-            builder.OpenElement(0, "h1");
-            builder.AddContent(1, "Hello World");
-            builder.CloseElement();
+            builder.OpenComponent(0,typeof(Counter));
+            builder.CloseComponent();
         };
 
-        await ModalDialogService.ShowAsync("TestHeader", body);
+        var inst = await ModalDialogService.ShowAsync("TestHeader", body);
+        var result = await inst.Result;
+
+        if(result.Cancelled)
+        {
+
+        }
     }
 }

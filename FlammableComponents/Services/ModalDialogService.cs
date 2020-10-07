@@ -7,23 +7,17 @@ namespace FlammableComponents
 {
     public class ModalDialogService : IModalDialogService
     {
-        public event Func<string, RenderFragment, ModalDialogSize, Task> OnShow;
-        public event Func<Task> OnClose;
-        public event Func<Task> OnCancel;
+        public event Func<string, RenderFragment, ModalDialogSize, Task<ModalDialogInstance>> OnShow;
+        public event Func<ModalDialogInstance, Task> OnClose;
 
-        public async Task ShowAsync(string header, RenderFragment body, ModalDialogSize modalDialogSize = ModalDialogSize.Default)
+        public async Task<ModalDialogInstance> ShowAsync(string header, RenderFragment body, ModalDialogSize modalDialogSize = ModalDialogSize.Default)
         {
-            await OnShow?.Invoke(header, body, modalDialogSize);
+            return await OnShow?.Invoke(header, body, modalDialogSize);
         }
 
-        public async Task CloseAsync()
+        public async Task CloseAsync(ModalDialogInstance modalDialogInstance)
         {
-            await OnClose?.Invoke();
-        }
-
-        public async Task CancelAsync()
-        {
-            await OnCancel?.Invoke();
+            await OnClose?.Invoke(modalDialogInstance);
         }
     }
 }

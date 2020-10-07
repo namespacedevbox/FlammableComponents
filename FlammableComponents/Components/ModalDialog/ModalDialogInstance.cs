@@ -1,39 +1,54 @@
 ﻿using System;
+using System.Threading.Tasks;
 using FlammableComponents.Enums;
 using Microsoft.AspNetCore.Components;
+using FlammableComponents.Components.ModalDialog;
 
 namespace FlammableComponents
 {
     public class ModalDialogInstance
     {
-        public string Id { get; private set; }
-        public string ModalDialogSizeClass { get; private set; }
-        public string Header { get; set; }
-        public RenderFragment Body { get; set; }
+        private readonly IModalDialogService _modalDialogService;
+        private readonly TaskCompletionSource<ModalResult> _resultCompletion;
 
-        public ModalDialogInstance(ModalDialogSize modalDialogSize, RenderFragment body, string header)
+        public string Id { get; }
+        public string Title { get; }
+        public RenderFragment Body { get;  }
+        public string ModalDialogSize { get; }
+        public Task<ModalResult> Result => _resultCompletion.Task;
+
+        public ModalDialogInstance(string title, RenderFragment body, ModalDialogSize modalDialogSize, IModalDialogService modalDialogService)
         {
-            Id = Guid.NewGuid().ToString();
-            Header = header;
+            _modalDialogService = modalDialogService;
+            _resultCompletion = new TaskCompletionSource<ModalResult>();
+
             Body = body;
+            Title = title;
+            Id = Guid.NewGuid().ToString();
 
             switch (modalDialogSize)
             {
-                case ModalDialogSize.Default:
-                    ModalDialogSizeClass = string.Empty;
+                case Enums.ModalDialogSize.Default:
+                    ModalDialogSize = string.Empty;
                     break;
-                case ModalDialogSize.Small:
-                    ModalDialogSizeClass = "modal-sm";
+                case Enums.ModalDialogSize.Small:
+                    ModalDialogSize = "modal-sm";
                     break;
-                case ModalDialogSize.Large:
-                    ModalDialogSizeClass = "modal-lg";
+                case Enums.ModalDialogSize.Large:
+                    ModalDialogSize = "modal-lg";
                     break;
-                case ModalDialogSize.ExtraLarge:
-                    ModalDialogSizeClass = "modal-xl";
+                case Enums.ModalDialogSize.ExtraLarge:
+                    ModalDialogSize = "modal-xl";
                     break;
                 default:
                     break;
             }
+        }
+
+        public async Task CloseAsync(ModalResult obj)
+        {
+            await _modalDialogService.CloseAsync(this);
+            _resultCompletion.TrySetResult(obj);
         }
     }
 }

@@ -1,0 +1,57 @@
+﻿<h3>Counter</h3>
+
+<p>@Count</p>
+<button type="button" @onclick="Increment">++</button>
+<button type="button" @onclick="CloseAsync">Close</button>
+<button type="button" @onclick="OpenDialog">OpenCount</button>
+
+
+@code {
+
+    [CascadingParameter] public ModalDialogInstance ModalDialogInstance { get; set; }
+    [Inject] public FlammableComponents.IModalDialogService ModalDialogService { get; set; }
+
+
+    public int Count { get; set; }
+
+    private void Increment()
+    {
+        Count++;
+        StateHasChanged();
+    }
+
+    public async Task OpenDialog()
+    {
+        RenderFragment body = (builder) =>
+        {
+            builder.OpenComponent(0, typeof(Counter));
+            builder.CloseComponent();
+        };
+        var rand = new Random();
+
+        var persent = rand.Next(1, 100);
+        FlammableComponents.Enums.ModalDialogSize size = Enums.ModalDialogSize.Default;
+
+        if (persent >= 0 && persent <= 25)
+            size = Enums.ModalDialogSize.Default;
+        else if (persent > 25 && persent <= 50)
+            size = Enums.ModalDialogSize.Large;
+        else if (persent > 50 && persent <= 75)
+            size = Enums.ModalDialogSize.Small;
+        else if (persent > 75 && persent <= 100)
+            size = Enums.ModalDialogSize.ExtraLarge;
+
+        var inst = await ModalDialogService.ShowAsync("TestHeader", body, size);
+        var result = await inst.Result;
+
+        if (result.Cancelled)
+        {
+
+        }
+    }
+
+    public async Task CloseAsync()
+    {
+        await ModalDialogInstance.CloseAsync(new Components.ModalDialog.ModalResult(true));
+    }
+}
