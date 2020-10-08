@@ -18,11 +18,5 @@ namespace FlammableComponents
             await JSRuntime.InvokeVoidAsync("showModalDialog", ModalDialogInstance.Id);
             await InvokeAsync(StateHasChanged);
         }
-
-        private async Task CloseDialogAsync()
-        {
-            await JSRuntime.InvokeVoidAsync("hideModalDialog", ModalDialogInstance.Id);
-            await ModalDialogsWrapper.CloseDialogAsync(ModalDialogInstance.Id);
-        }
     }
 }

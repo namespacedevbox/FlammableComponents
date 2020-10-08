@@ -10,7 +10,6 @@ namespace FlammableComponents.Services
 {
     public class DataTableService<TItem, TFilter> : IDisposable, IDataTableService<TItem, TFilter> where TItem : class where TFilter : class, new()
     {
-        private IModalDialogService _modalDialogService;
         private Func<DataLoadingOptions<TFilter>, Task<int>> _getEntitiesCount;
         private Func<DataLoadingOptions<TFilter>, Task<List<TItem>>> _getEntities;
         private Action _stateHasChanged;
@@ -33,8 +32,6 @@ namespace FlammableComponents.Services
             _stateHasChanged = stateHasChanged;
             _getEntities = getEntities;
             _getEntitiesCount = getEntitiesCount;
-            _modalDialogService = modalDialogService;
-            _modalDialogService.OnClose += LoadTableDataAsync;
             DataLoadingOptions.SortedColumn = sortedColumn;
             DataLoadingOptions.SortDirection = sortDirection;
             DataLoadingOptions.EntityId = entityId;
@@ -124,8 +121,8 @@ namespace FlammableComponents.Services
 
         public void Dispose()
         {
-            if (_modalDialogService != null)
-                _modalDialogService.OnClose -= LoadTableDataAsync;
+            //if (_modalDialogService != null)
+            //    _modalDialogService.OnClose -= LoadTableDataAsync;
         }
     }
 }
