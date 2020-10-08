@@ -1,0 +1,104 @@
+﻿@namespace FlammableComponents
+@inherits FlammableComponentBase
+
+<style>
+    ul#more-nav, ul#nav-bar-filter {
+        display: inline-block;
+        vertical-align: top;
+    }
+
+    ul {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    li {
+        padding: 4px 8px 4px 8px;
+        margin: 0;
+    }
+
+    #nav-bar-filter li {
+        display: inline-block;
+        font-weight: bold;
+    }
+
+    a {
+        text-decoration: none;
+        color: #666;
+        font-size: 13px;
+    }
+
+    .filter-wrapper {
+        width: 100%;
+        background: #eee;
+        padding: 5px 10px 5px 10px;
+    }
+
+    #more-nav {
+        float: right;
+    }
+
+    .subfilter {
+        padding-top: 10px;
+    }
+
+        .subfilter li {
+            margin: 0 0 0 20px;
+            padding: 5px 0 0 0;
+        }
+</style>
+<div class="twelve columns filter-wrapper">
+    <ul class="nav-bar-filter" id="nav-bar-filter">
+        <li>
+            <a href="#">All</a>
+        </li>
+        <li>
+            <a href="#">Small</a>
+
+        </li>
+        <li>
+            <a href="#">Medium</a>
+
+        </li>
+        <li>
+            <a href="#">Extra large</a>
+
+        </li>
+        <li>
+            <a href="#">Text</a>
+
+        </li>
+        <li>
+            <a href="#">Small-1</a>
+
+        </li>
+        <li>
+            <a href="#">Medium-1</a>
+
+        </li>
+        <li>
+            <a href="#">Extra large text</a>
+
+        </li>
+        <li>
+            <a href="#">Large text</a>
+
+        </li>
+        <li>
+            <a href="#">Another text</a>
+
+        </li>
+        <li>
+            <a href="#">text</a>
+
+        </li>
+    </ul>
+    <ul id="more-nav">
+        <li>
+            <b><a href="#">More &gt;</a></b>
+
+            <ul class="subfilter"></ul>
+        </li>
+    </ul>
+</div>
